@@ -1,0 +1,6 @@
+Name: libwebrtc
+Description: The WebRTC library
+Version: 0.0.1
+Requires: libcrypto, nss
+Cflags: -DWEBRTC_POSIX -I${WEBRTC_LOCAL}/include -I${WEBRTC_LOCAL}/include/third_party/abseil-cpp -std=gnu++11
+Libs: -L${WEBRTC_LOCAL}/lib/x64 -lwebrtc -ldl -lX11 -lexpat 

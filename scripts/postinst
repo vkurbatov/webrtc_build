@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -e
+case "$1" in
+    configure)
+		echo '/opt/webrtc/lib/${TARGET_CPU}' > /etc/ld.so.conf.d/_webrtc_.conf 	
+		ldconfig
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+exit 0

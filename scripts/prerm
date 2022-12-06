@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+case "$1" in
+    remove)
+		rm -rf /etc/ld.so.conf.d/_webrtc_.conf 	
+		ldconfig
+    ;;
+esac
+
+exit 0
