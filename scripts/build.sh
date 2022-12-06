@@ -57,7 +57,7 @@ EXT_PATH=$PWD/depot_tools
 
 export PATH="$EXT_PATH:$PATH"
 echo Compiling WebRTC
-#compile $PLATFORM $SRCDIR $OUTDIR $TARGET_OS $TARGET_CPU "$CONFIGS" "$BLACKLIST"
+compile $PLATFORM $SRCDIR $OUTDIR $TARGET_OS $TARGET_CPU "$CONFIGS" "$BLACKLIST"
 
 if [[ $DEBIANIZE == true ]]
 then
