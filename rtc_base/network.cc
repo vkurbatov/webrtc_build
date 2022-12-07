@@ -1030,7 +1030,7 @@ IPAddress BasicNetworkManager::QueryDefaultLocalAddress(int family) const {
       // the network is V4- or V6-only.
       RTC_LOG(LS_INFO) << "Connect failed with " << socket->GetError();
     }
-    return IPAddress();
+    // return IPAddress();
   }
   return socket->GetLocalAddress().ipaddr();
 }

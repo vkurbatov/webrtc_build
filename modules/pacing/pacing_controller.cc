@@ -154,13 +154,14 @@ bool PacingController::IsProbing() const {
 
 Timestamp PacingController::CurrentTime() const {
   Timestamp time = clock_->CurrentTime();
+  /*
   if (time < last_timestamp_) {
     RTC_LOG(LS_WARNING)
         << "Non-monotonic clock behavior observed. Previous timestamp: "
         << last_timestamp_.ms() << ", new timestamp: " << time.ms();
     RTC_DCHECK_GE(time, last_timestamp_);
     time = last_timestamp_;
-  }
+  }*/
   last_timestamp_ = time;
   return time;
 }
