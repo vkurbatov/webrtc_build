@@ -41,11 +41,14 @@ TARGET_OS=$PLATFORM
 TARGET_CPU=${TARGET_CPU:-x64}
 DEBIANIZE=true
 OUTDIR="$SRCDIR/out/$TARGET_CPU"
+EXT_PATH=$PWD/depot_tools
 
+export PATH="$EXT_PATH:$PATH"
 
 if [[ $CLEAN == true ]]
 then
-	echo Cleaning out dir without ninja files
+	echo Cleaning out dir
+	clear_ninja $OUTDIR
 	find $SRCDIR/out -type f \( -name '*.o' -o -name '*.a' -o -name '*.so' -o -name '*.so.*' -o -name '*.stamp' \) -exec rm -rf {} \;
 	exit 0
 fi
@@ -53,9 +56,6 @@ fi
 echo Checking build environment dependencies
 check_build_env $PLATFORM "$TARGET_CPU"
 
-EXT_PATH=$PWD/depot_tools
-
-export PATH="$EXT_PATH:$PATH"
 echo Compiling WebRTC
 compile $PLATFORM $SRCDIR $OUTDIR $TARGET_OS $TARGET_CPU "$CONFIGS" "$BLACKLIST"
 

@@ -51,6 +51,13 @@ function compile()
   popd >/dev/null
 }
 
+function clear_ninja()
+{
+    local outdir="$1"
+    
+    gn clean $outdir
+}
+
 function compile_ninja() 
 {
   local outdir="$1"
